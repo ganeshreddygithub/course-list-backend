@@ -28,7 +28,7 @@ services:
       MYSQL_ROOT_PASSWORD: ganesh
       MYSQL_DATABASE: courses
     ports:
-      - "3306:3306"
+      - "3307:3306"
     networks:
       - course-network
 
