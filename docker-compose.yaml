@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ganesh370/course-list-backend:latest
+    container_name: course-list-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/courses
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ganesh
+    ports:
+      - "8080:8080"
+    networks:
+      - course-network
+
+  frontend:
+    image: ganesh370/course-list-frontend:latest
+    container_name: course-list-frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - course-network
+
+  db:
+    image: mysql:8.0
+    container_name: course-list-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ganesh
+      MYSQL_DATABASE: courses
+    ports:
+      - "3306:3306"
+    networks:
+      - course-network
+
+networks:
+  course-network:
+    driver: bridge
