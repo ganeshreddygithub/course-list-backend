@@ -14,7 +14,7 @@ services:
       - course-network
 
   frontend:
-    image: ganesh370/course-list-frontend:latest
+    image: ganesh370/course-frontend:latest
     container_name: course-list-frontend
     ports:
       - "3000:3000"
